@@ -1,23 +1,19 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import DropZone from './components/DropZone';
+import Section from './components/Section';
+import { useSlateContext } from './context/slateDataProvider/SlateDataProvider';
 
 function App() {
+  const { sections } = useSlateContext();
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {sections.map((section) => (
+        <React.Fragment key={section.id}>
+          <Section id={section.id} title={section.title} items={section.items} />
+          <DropZone type="section" />
+        </React.Fragment>
+      ))}
     </div>
   );
 }

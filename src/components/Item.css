@@ -1,0 +1,20 @@
+.section-item__container {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+.section-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.section-item:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.section-item__container > span {
+  margin-right: 10px;
+  cursor: move;
+}
